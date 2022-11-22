@@ -3,6 +3,7 @@ package springboot.domain.posts;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import springboot.domain.BaseTimeEntity;
 
 import javax.persistence.*;
 
@@ -14,7 +15,7 @@ import javax.persistence.*;
 // 화면 변경은 아주 사소한 기능 변경인데, 이를 위해 테이블과 연결된 Entity 클래스를 변경하는 것은 너무 큰 변경이다. => Dto에서 변경
 // 그러므로, View Layer와 DB Layer의 역할 분리를 철저히 하며, Entity 클래스와 Controller에서 쓸 Dto는 분리해서 사용
 @Entity
-public class Posts { // Posts 클래스 : 실제 DB의 테이블과 매칭될 클래스
+public class Posts extends BaseTimeEntity { // Posts 클래스 : 실제 DB의 테이블과 매칭될 클래스
     // Setter를 무작정 생성하는 경우 -> 해당 클래스의 인스턴스 값들이 언제 어디서 변해야 하는지 코드상으로 명확하게 구분할 수가 없어, 차후 기능 변경 시 정말 복잡해짐.
     // -> 생성자 대신에 @Builder를 통해 데이터 삽입
     @Id // Id : 해당 테이블의 PK 필드를 나타냄.
