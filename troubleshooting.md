@@ -1,5 +1,19 @@
 # 트러블 슈팅 기록
 
+- **Git ignore 적용이 안되는 경우**
+    - git의 캐시가 원인이라 git에 있는 캐시 파일을 지워주고 다시 add 해야함
+    ```
+        git rm -r --cached .
+        git add .
+        git commit -m "removed cached"
+    ```
+<br>
+
+- **Column "GUEST" not found; SQL statement:**
+    - 기본적이지만 sql문에서 이중 따옴표는 쓰지 말자. " " -> ' ' 확인하기
+
+<br>
+
 - **Error creating bean with name 'requestMappingHandlerMapping' 오류**
     - 컨트롤러의 @RequestMapping 으로 설정된 경로를 확인
     - 예외 로그를 자세히 보면 나와있지만 **특정 맵핑 경로가 중복**되어 발생한 오류
